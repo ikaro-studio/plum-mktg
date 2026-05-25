@@ -35,3 +35,6 @@ yarn-error.log*
 
 # editors
 .vscode
+
+# typescript incremental build cache
+*.tsbuildinfo
