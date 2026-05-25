@@ -1,9 +1,7 @@
-import { cookies, headers } from 'next/headers';
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@/utils/supabase/server';
 import { stripe } from '@/utils/stripe';
 import { createOrRetrieveCustomer } from '@/utils/supabase-admin';
 import { getURL } from '@/utils/helpers';
-import { Database } from '@/types_db';
 
 export async function POST(req: Request) {
   if (req.method === 'POST') {
@@ -12,7 +10,7 @@ export async function POST(req: Request) {
 
     try {
       // 2. Get the user from Supabase auth
-      const supabase = createRouteHandlerClient<Database>({cookies});
+      const supabase = await createClient();
       const {
         data: { user }
       } = await supabase.auth.getUser();
@@ -42,7 +40,6 @@ export async function POST(req: Request) {
           mode: 'subscription',
           allow_promotion_codes: true,
           subscription_data: {
-            trial_from_plan: true,
             metadata
           },
           success_url: `${getURL()}/account`,
