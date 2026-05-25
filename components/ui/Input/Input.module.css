@@ -1,7 +1,29 @@
 .root {
-  @apply bg-black py-2 px-3 w-full appearance-none transition duration-150 ease-in-out border border-zinc-500 text-zinc-200;
+  display: block;
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  font-family: var(--font-sans);
+  font-size: var(--fs-15);
+  color: var(--fg1);
+  background: var(--bg-elevated);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  appearance: none;
+  transition: border-color var(--dur-2) var(--ease-soft),
+    box-shadow var(--dur-2) var(--ease-soft);
 }
 
-.root:focus {
-  @apply outline-none;
+.root::placeholder {
+  color: var(--fg3);
+}
+
+.root:hover {
+  border-color: var(--rose-300);
+}
+
+.root:focus,
+.root:focus-visible {
+  outline: none;
+  border-color: var(--rose-500);
+  box-shadow: var(--shadow-focus);
 }

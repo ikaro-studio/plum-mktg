@@ -1,19 +1,64 @@
 .root {
-  @apply sticky top-0 bg-black z-40 transition-all duration-150 h-16 md:h-20;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(241, 237, 238, 0.85);
+  backdrop-filter: blur(18px) saturate(120%);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+  border-bottom: 1px solid var(--line);
+  transition: background var(--dur-2) var(--ease-soft);
+  height: 4rem;
+}
+
+@media (min-width: 768px) {
+  .root {
+    height: 5rem;
+  }
 }
 
 .link {
-  @apply inline-flex items-center leading-6 font-medium transition ease-in-out duration-75 cursor-pointer text-zinc-200 rounded-md p-1;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  font-size: var(--fs-15);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--fg2);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: color var(--dur-2) var(--ease-soft),
+    background var(--dur-2) var(--ease-soft);
 }
 
 .link:hover {
-  @apply text-zinc-100;
+  color: var(--plum-800);
+  background: rgba(74, 27, 59, 0.06);
 }
 
-.link:focus {
-  @apply outline-none text-zinc-100 ring-2 ring-pink-500 ring-opacity-50;
+.link:focus-visible {
+  outline: none;
+  color: var(--plum-800);
+  box-shadow: var(--shadow-focus);
 }
 
 .logo {
-  @apply cursor-pointer rounded-full transform duration-100 ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--plum-800);
+  cursor: pointer;
+  border-radius: var(--radius-full);
+  transition: opacity var(--dur-2) var(--ease-soft);
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.wordmark {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-18);
+  letter-spacing: var(--tracking-tight);
+  color: var(--plum-800);
 }

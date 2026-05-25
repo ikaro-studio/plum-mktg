@@ -1,0 +1,39 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Signature gradients</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 20px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; flex: 1; }
+  .grad {
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--shadow-inner);
+  }
+  .grad .name { font-family: var(--font-sans); font-weight: 700; font-size: 14px; }
+  .grad .tok { font-family: var(--font-mono); font-size: 10px; opacity: 0.7; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="grad" style="background: var(--gradient-bloom); color:#FFF">
+      <div class="name">--gradient-bloom</div>
+      <div class="tok">cream → peach → mauve → plum</div>
+    </div>
+    <div class="grad" style="background: var(--gradient-feng); color:#4A1B3B">
+      <div class="name">--gradient-feng</div>
+      <div class="tok">sage → peach, 135°</div>
+    </div>
+    <div class="grad" style="background: var(--gradient-rose-veil); color:#4A1B3B">
+      <div class="name">--gradient-rose-veil</div>
+      <div class="tok">cream → dusty rose</div>
+    </div>
+    <div class="grad" style="background: linear-gradient(180deg, #F1EDEE 0%, #F7BB9E 100%); color:#4A1B3B">
+      <div class="name">--gradient-peach-veil</div>
+      <div class="tok">cream → peach (hero veil)</div>
+    </div>
+  </div>
+</body></html>

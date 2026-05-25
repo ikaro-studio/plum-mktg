@@ -1,0 +1,47 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Petal mark</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 18px; }
+  .row { gap: 12px; flex: 1; }
+  .frame {
+    flex: 1;
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    background: var(--bg-elevated);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 8px;
+    min-height: 200px;
+    padding: 14px;
+    position: relative;
+  }
+  .frame img { object-fit: contain; }
+  .nm { font-family: var(--font-sans); font-weight: 600; font-size: 12px; color: var(--plum-800); }
+  .lbl { font-family: var(--font-mono); font-size: 10px; color: var(--fg3); }
+  .dark { background: var(--plum-900); border-color: transparent; }
+  .dark .nm { color: var(--cream-100); }
+  .dark .lbl { color: rgba(241,237,238,0.5); }
+  .gradient { background: var(--gradient-bloom); border-color: transparent; }
+  .gradient .nm, .gradient .lbl { color: #FFF; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="frame">
+      <img src="../assets/plum-mark.png" alt="" style="height: 120px;">
+      <div class="nm">Bloom mark</div>
+      <div class="lbl">primary · plum-mark.png</div>
+    </div>
+    <div class="frame dark">
+      <img src="../assets/plum-mark.png" alt="" style="height: 120px;">
+      <div class="nm">On plum 900</div>
+      <div class="lbl">app icon · favicon</div>
+    </div>
+    <div class="frame gradient">
+      <img src="../assets/plum-mark.png" alt="" style="height: 120px; filter: brightness(0) invert(1);">
+      <div class="nm">Knockout on bloom</div>
+      <div class="lbl">cream on --gradient-bloom</div>
+    </div>
+  </div>
+</body></html>

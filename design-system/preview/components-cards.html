@@ -1,0 +1,52 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Cards</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 22px; justify-content: center; background: var(--cream-100); }
+  .row { gap: 14px; align-items: stretch; }
+  .card {
+    flex: 1;
+    background: var(--bg-elevated);
+    border-radius: 18px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow-sm);
+    display: flex; flex-direction: column; gap: 8px;
+    border: 1px solid var(--line);
+  }
+  .card.flat { box-shadow: none; border: 1px solid var(--line); }
+  .card.hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: transparent; }
+  .card.feature { background: var(--gradient-feng); border: 0; box-shadow: var(--shadow-sm); }
+  .nm { font-family: var(--font-sans); font-weight: 700; font-size: 16px; color: var(--plum-800); letter-spacing:-0.01em; }
+  .body { font-family: var(--font-sans); font-size: 12px; color: var(--fg2); }
+  .ey { font-family: var(--font-sans); font-weight: 700; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg3); }
+  .lbl { font-family: var(--font-mono); font-size: 10px; color: var(--fg3); margin-top: auto; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="card flat">
+      <div class="ey">Flat · ultra-flat</div>
+      <div class="nm">Brand profile</div>
+      <div class="body">Hairline border, no lift. Use on detail views.</div>
+      <div class="lbl">--bg-elevated · 1px --line</div>
+    </div>
+    <div class="card">
+      <div class="ey">Resting</div>
+      <div class="nm">Asset tile</div>
+      <div class="body">Default card. Shadow-sm at rest.</div>
+      <div class="lbl">+ shadow-sm · 18px radius</div>
+    </div>
+    <div class="card hover">
+      <div class="ey">Hovered</div>
+      <div class="nm">Asset tile · hover</div>
+      <div class="body">Lifts 2px, shadow-md, border fades.</div>
+      <div class="lbl">+ shadow-md · translateY(-2)</div>
+    </div>
+    <div class="card feature">
+      <div class="ey">Feature</div>
+      <div class="nm" style="color: var(--plum-800)">Recently added</div>
+      <div class="body" style="color: var(--plum-800)">Gradient surface for hero cards.</div>
+      <div class="lbl" style="color: var(--plum-800); opacity: 0.65;">--gradient-feng</div>
+    </div>
+  </div>
+</body></html>

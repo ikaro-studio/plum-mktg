@@ -5,49 +5,65 @@ import GitHub from '@/components/icons/GitHub';
 
 export default function Footer() {
   return (
-    <footer className="mx-auto max-w-[1920px] px-6 bg-zinc-900">
-      <div className="grid grid-cols-1 gap-8 py-12 text-white transition-colors duration-150 border-b lg:grid-cols-12 border-zinc-600 bg-zinc-900">
-        <div className="col-span-1 lg:col-span-2">
+    <footer className="mx-auto max-w-[1920px] px-6 mt-24 bg-cream-100 border-t border-line">
+      <div className="grid grid-cols-1 gap-8 py-16 lg:grid-cols-12 max-w-6xl mx-auto">
+        <div className="col-span-1 lg:col-span-4">
           <Link
             href="/"
-            className="flex items-center flex-initial font-bold md:mr-24"
+            className="flex items-center gap-2 font-bold text-plum-800"
           >
-            <span className="mr-2 border rounded-full border-zinc-700">
-              <Logo />
-            </span>
-            <span>ACME</span>
+            <Logo width={28} height={28} />
+            <span className="text-lg tracking-tight">Plum</span>
           </Link>
+          <p className="mt-4 text-ink-2 text-sm leading-relaxed max-w-xs">
+            The place a brand lives, intact. We consolidate brand files so
+            teams always work from the same source of truth.
+          </p>
         </div>
         <div className="col-span-1 lg:col-span-2">
-          <ul className="flex flex-col flex-initial md:flex-1">
-            <li className="py-3 md:py-0 md:pb-4">
+          <p className="eyebrow mb-4">PRODUCT</p>
+          <ul className="flex flex-col space-y-3">
+            <li>
               <Link
                 href="/"
-                className="text-white transition duration-150 ease-in-out hover:text-zinc-200"
+                className="text-ink-2 hover:text-plum-800 transition-colors duration-200 ease-soft text-sm"
               >
-                Home
+                Pricing
               </Link>
             </li>
-            <li className="py-3 md:py-0 md:pb-4">
+            <li>
+              <Link
+                href="/signin"
+                className="text-ink-2 hover:text-plum-800 transition-colors duration-200 ease-soft text-sm"
+              >
+                Sign in
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="col-span-1 lg:col-span-2">
+          <p className="eyebrow mb-4">COMPANY</p>
+          <ul className="flex flex-col space-y-3">
+            <li>
               <Link
                 href="/"
-                className="text-white transition duration-150 ease-in-out hover:text-zinc-200"
+                className="text-ink-2 hover:text-plum-800 transition-colors duration-200 ease-soft text-sm"
               >
                 About
               </Link>
             </li>
-            <li className="py-3 md:py-0 md:pb-4">
+            <li>
               <Link
                 href="/"
-                className="text-white transition duration-150 ease-in-out hover:text-zinc-200"
+                className="text-ink-2 hover:text-plum-800 transition-colors duration-200 ease-soft text-sm"
               >
                 Careers
               </Link>
             </li>
-            <li className="py-3 md:py-0 md:pb-4">
+            <li>
               <Link
                 href="/"
-                className="text-white transition duration-150 ease-in-out hover:text-zinc-200"
+                className="text-ink-2 hover:text-plum-800 transition-colors duration-200 ease-soft text-sm"
               >
                 Blog
               </Link>
@@ -55,57 +71,43 @@ export default function Footer() {
           </ul>
         </div>
         <div className="col-span-1 lg:col-span-2">
-          <ul className="flex flex-col flex-initial md:flex-1">
-            <li className="py-3 md:py-0 md:pb-4">
-              <p className="font-bold text-white transition duration-150 ease-in-out hover:text-zinc-200">
-                LEGAL
-              </p>
-            </li>
-            <li className="py-3 md:py-0 md:pb-4">
+          <p className="eyebrow mb-4">LEGAL</p>
+          <ul className="flex flex-col space-y-3">
+            <li>
               <Link
                 href="/"
-                className="text-white transition duration-150 ease-in-out hover:text-zinc-200"
+                className="text-ink-2 hover:text-plum-800 transition-colors duration-200 ease-soft text-sm"
               >
-                Privacy Policy
+                Privacy
               </Link>
             </li>
-            <li className="py-3 md:py-0 md:pb-4">
+            <li>
               <Link
                 href="/"
-                className="text-white transition duration-150 ease-in-out hover:text-zinc-200"
+                className="text-ink-2 hover:text-plum-800 transition-colors duration-200 ease-soft text-sm"
               >
-                Terms of Use
+                Terms of use
               </Link>
             </li>
           </ul>
         </div>
-        <div className="flex items-start col-span-1 text-white lg:col-span-6 lg:justify-end">
-          <div className="flex items-center h-10 space-x-6">
-            <a
-              aria-label="Github Repository"
-              href="https://github.com/vercel/nextjs-subscription-payments"
-            >
-              <GitHub />
-            </a>
-          </div>
-        </div>
-      </div>
-      <div className="flex flex-col items-center justify-between py-12 space-y-4 md:flex-row bg-zinc-900">
-        <div>
-          <span>
-            &copy; {new Date().getFullYear()} ACME, Inc. All rights reserved.
-          </span>
-        </div>
-        <div className="flex items-center">
-          <span className="text-white">Crafted by</span>
-          <a href="https://vercel.com" aria-label="Vercel.com Link">
-            <img
-              src="/vercel.svg"
-              alt="Vercel.com Logo"
-              className="inline-block h-6 ml-4 text-white"
-            />
+        <div className="flex items-start col-span-1 lg:col-span-2 lg:justify-end">
+          <a
+            aria-label="Github Repository"
+            href="https://github.com/vercel/nextjs-subscription-payments"
+            className="inline-flex items-center justify-center w-10 h-10 rounded-full text-ink-2 hover:text-plum-800 hover:bg-plum-800/5 transition duration-200 ease-soft"
+          >
+            <GitHub />
           </a>
         </div>
+      </div>
+      <div className="flex flex-col items-center justify-between py-8 space-y-4 md:flex-row border-t border-line max-w-6xl mx-auto">
+        <p className="text-ink-3 text-sm">
+          &copy; {new Date().getFullYear()} Plum. All rights reserved.
+        </p>
+        <p className="text-ink-3 text-sm">
+          bloom early — even in the harshest weather.
+        </p>
       </div>
     </footer>
   );

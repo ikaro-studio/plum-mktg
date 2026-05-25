@@ -5,10 +5,8 @@ import {
   getSubscription
 } from '@/app/supabase-server';
 import Button from '@/components/ui/Button';
-import { Database } from '@/types_db';
-import { createServerActionClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@/utils/supabase/server';
 import { revalidatePath } from 'next/cache';
-import { cookies } from 'next/headers';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { ReactNode } from 'react';
@@ -38,13 +36,16 @@ export default async function Account() {
     'use server';
 
     const newName = formData.get('name') as string;
-    const supabase = createServerActionClient<Database>({ cookies });
+    const supabase = await createClient();
     const session = await getSession();
     const user = session?.user;
+    if (!user) return;
+    // Cast: types_db.ts was generated for an older supabase-js. Regenerate via
+    // `pnpm generate-types` against your live project to drop the cast.
     const { error } = await supabase
       .from('users')
-      .update({ full_name: newName })
-      .eq('id', user?.id);
+      .update({ full_name: newName } as never)
+      .eq('id', user.id);
     if (error) {
       console.log(error);
     }
@@ -55,7 +56,7 @@ export default async function Account() {
     'use server';
 
     const newEmail = formData.get('email') as string;
-    const supabase = createServerActionClient<Database>({ cookies });
+    const supabase = await createClient();
     const { error } = await supabase.auth.updateUser({ email: newEmail });
     if (error) {
       console.log(error);
@@ -64,20 +65,21 @@ export default async function Account() {
   };
 
   return (
-    <section className="mb-32 bg-black">
+    <section className="mb-32">
       <div className="max-w-6xl px-4 py-8 mx-auto sm:px-6 sm:pt-24 lg:px-8">
         <div className="sm:align-center sm:flex sm:flex-col">
-          <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
+          <p className="eyebrow text-center mb-3">YOUR WORKSPACE</p>
+          <h1 className="text-4xl font-bold text-plum-800 sm:text-center sm:text-6xl tracking-display">
             Account
           </h1>
-          <p className="max-w-2xl m-auto mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl">
-            We partnered with Stripe for a simplified billing.
+          <p className="max-w-2xl m-auto mt-5 text-lg text-ink-2 sm:text-center">
+            We partnered with Stripe to keep billing calm and out of the way.
           </p>
         </div>
       </div>
-      <div className="p-4">
+      <div className="p-4 max-w-3xl mx-auto">
         <Card
-          title="Your Plan"
+          title="Your plan"
           description={
             subscription
               ? `You are currently on the ${subscription?.prices?.products?.name} plan.`
@@ -85,38 +87,44 @@ export default async function Account() {
           }
           footer={<ManageSubscriptionButton session={session} />}
         >
-          <div className="mt-8 mb-4 text-xl font-semibold">
+          <div className="mt-6 mb-2 text-2xl font-semibold text-plum-800 tracking-display">
             {subscription ? (
               `${subscriptionPrice}/${subscription?.prices?.interval}`
             ) : (
-              <Link href="/">Choose your plan</Link>
+              <Link
+                href="/"
+                className="text-rose-500 hover:text-rose-400 underline underline-offset-4"
+              >
+                Choose your plan
+              </Link>
             )}
           </div>
         </Card>
         <Card
-          title="Your Name"
+          title="Your name"
           description="Please enter your full name, or a display name you are comfortable with."
           footer={
             <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
-              <p className="pb-4 sm:pb-0">64 characters maximum</p>
+              <p className="pb-4 sm:pb-0 text-ink-3 text-sm">
+                64 characters maximum
+              </p>
               <Button
                 variant="slim"
                 type="submit"
                 form="nameForm"
                 disabled={true}
               >
-                {/* WARNING - In Next.js 13.4.x server actions are in alpha and should not be used in production code! */}
-                Update Name
+                Update name
               </Button>
             </div>
           }
         >
-          <div className="mt-8 mb-4 text-xl font-semibold">
+          <div className="mt-6 mb-2">
             <form id="nameForm" action={updateName}>
               <input
                 type="text"
                 name="name"
-                className="w-1/2 p-3 rounded-md bg-zinc-800"
+                className="w-full sm:w-1/2 p-3 rounded-md bg-white border border-line text-plum-800 placeholder:text-ink-3 focus:outline-none focus:border-rose-500 focus:shadow-focus transition duration-200 ease-soft"
                 defaultValue={userDetails?.full_name ?? ''}
                 placeholder="Your name"
                 maxLength={64}
@@ -125,11 +133,11 @@ export default async function Account() {
           </div>
         </Card>
         <Card
-          title="Your Email"
-          description="Please enter the email address you want to use to login."
+          title="Your email"
+          description="Please enter the email address you want to use to sign in."
           footer={
             <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
-              <p className="pb-4 sm:pb-0">
+              <p className="pb-4 sm:pb-0 text-ink-3 text-sm">
                 We will email you to verify the change.
               </p>
               <Button
@@ -138,18 +146,17 @@ export default async function Account() {
                 form="emailForm"
                 disabled={true}
               >
-                {/* WARNING - In Next.js 13.4.x server actions are in alpha and should not be used in production code! */}
-                Update Email
+                Update email
               </Button>
             </div>
           }
         >
-          <div className="mt-8 mb-4 text-xl font-semibold">
+          <div className="mt-6 mb-2">
             <form id="emailForm" action={updateEmail}>
               <input
                 type="text"
                 name="email"
-                className="w-1/2 p-3 rounded-md bg-zinc-800"
+                className="w-full sm:w-1/2 p-3 rounded-md bg-white border border-line text-plum-800 placeholder:text-ink-3 focus:outline-none focus:border-rose-500 focus:shadow-focus transition duration-200 ease-soft"
                 defaultValue={user ? user.email : ''}
                 placeholder="Your email"
                 maxLength={64}
@@ -171,13 +178,13 @@ interface Props {
 
 function Card({ title, description, footer, children }: Props) {
   return (
-    <div className="w-full max-w-3xl m-auto my-8 border rounded-md p border-zinc-700">
-      <div className="px-5 py-4">
-        <h3 className="mb-1 text-2xl font-medium">{title}</h3>
-        <p className="text-zinc-300">{description}</p>
+    <div className="w-full max-w-3xl m-auto my-6 rounded-lg bg-white border border-line shadow-sm overflow-hidden">
+      <div className="px-6 py-5">
+        <h3 className="mb-1 text-xl font-semibold text-plum-800">{title}</h3>
+        <p className="text-ink-2 text-sm leading-relaxed">{description}</p>
         {children}
       </div>
-      <div className="p-4 border-t rounded-b-md border-zinc-700 bg-zinc-900 text-zinc-500">
+      <div className="px-6 py-4 border-t border-line bg-cream-100 text-ink-2">
         {footer}
       </div>
     </div>

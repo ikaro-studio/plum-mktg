@@ -5,12 +5,13 @@ import { PropsWithChildren } from 'react';
 import 'styles/main.css';
 
 const meta = {
-  title: 'Next.js Subscription Starter',
-  description: 'Brought to you by Vercel, Stripe, and Supabase.',
-  cardImage: '/og.png',
+  title: 'Plum — the place a brand lives, intact',
+  description:
+    'Plum is a Digital Asset Management platform. We consolidate brand files so teams, freelancers, and agencies always work from the same source of truth.',
+  cardImage: '/brand/plum-lockup-cream.png',
   robots: 'follow, index',
   favicon: '/favicon.ico',
-  url: 'https://subscription-starter.vercel.app',
+  url: 'https://plum.app',
   type: 'website'
 };
 
@@ -28,31 +29,26 @@ export const metadata = {
     description: meta.description,
     cardImage: meta.cardImage,
     type: meta.type,
-    site_name: meta.title
+    site_name: 'Plum'
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@vercel',
+    site: '@plum',
     title: meta.title,
     description: meta.description,
     cardImage: meta.cardImage
   }
 };
 
-export default function RootLayout({
-  // Layouts must accept a children prop.
-  // This will be populated with nested layouts or pages
-  children
-}: PropsWithChildren) {
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
-      <body className="bg-black loading">
+      <body className="bg-cream-100 text-plum-800">
         <SupabaseProvider>
-          {/* @ts-expect-error */}
           <Navbar />
           <main
             id="skip"
-            className="min-h-[calc(100dvh-4rem)] md:min-h[calc(100dvh-5rem)]"
+            className="min-h-[calc(100dvh-4rem)] md:min-h-[calc(100dvh-5rem)]"
           >
             {children}
           </main>

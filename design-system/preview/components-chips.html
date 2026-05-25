@@ -1,0 +1,47 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Chips & badges</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 22px 24px; justify-content: center; }
+  .specimen { padding: 18px 22px; gap: 12px; display: flex; flex-direction: column; }
+  .row { gap: 8px; flex-wrap: wrap; align-items: center; }
+  .chip {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; }
+  .lbl { font-family: var(--font-mono); font-size: 10px; color: var(--fg3); width: 78px; }
+</style>
+</head>
+<body>
+  <div class="specimen">
+    <div class="row">
+      <span class="lbl">status</span>
+      <span class="chip" style="background:#C7D4BB;color:#3B5028"><span class="dot" style="background:#6B8A5A"></span>Approved</span>
+      <span class="chip" style="background:#CCDEF6;color:#1F3653"><span class="dot" style="background:#49637A"></span>Draft</span>
+      <span class="chip" style="background:#F0C597;color:#6E4416"><span class="dot" style="background:#C7833B"></span>Review</span>
+      <span class="chip" style="background:#E6B5B5;color:#6A2727"><span class="dot" style="background:#B14545"></span>Expired</span>
+      <span class="chip" style="background:rgba(74,27,59,0.08);color:#4A1B3B"><span class="dot" style="background:#4A1B3B"></span>Archived</span>
+    </div>
+    <div class="row">
+      <span class="lbl">type</span>
+      <span class="chip" style="background:var(--bg-elevated);border:1px solid var(--line);color:var(--fg2)">PNG · 8.4 MB</span>
+      <span class="chip" style="background:var(--bg-elevated);border:1px solid var(--line);color:var(--fg2)">video</span>
+      <span class="chip" style="background:var(--peach-400);color:var(--plum-800)">primary</span>
+      <span class="chip" style="background:var(--plum-800);color:var(--cream-100)">v3.2</span>
+    </div>
+    <div class="row">
+      <span class="lbl">tag</span>
+      <span class="chip" style="background:rgba(170,84,118,0.1);color:var(--rose-500)">#campaign-spring</span>
+      <span class="chip" style="background:rgba(170,84,118,0.1);color:var(--rose-500)">#logo</span>
+      <span class="chip" style="background:rgba(170,84,118,0.1);color:var(--rose-500)">#editorial</span>
+      <span class="chip" style="background:rgba(170,84,118,0.1);color:var(--rose-500)">+ 4 more</span>
+    </div>
+  </div>
+</body></html>

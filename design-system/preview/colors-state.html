@@ -1,0 +1,64 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>State colors</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 20px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .state {
+    border-radius: var(--radius-md);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px solid;
+    min-height: 130px;
+  }
+  .state .label { font-family: var(--font-sans); font-weight: 600; font-size: 13px; }
+  .state .body { font-family: var(--font-sans); font-size: 12px; opacity: 0.85; }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 11px;
+    align-self: flex-start;
+    margin-top: auto;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="state" style="background:#EEF2E9; color:#3B5028; border-color:rgba(107,138,90,0.25);">
+      <div class="label">Success</div>
+      <div class="body">Approved · synced · published</div>
+      <div class="pill" style="background:#C7D4BB;color:#3B5028">
+        <span class="dot" style="background:#6B8A5A"></span>Approved
+      </div>
+    </div>
+    <div class="state" style="background:#F6DDC4; color:#6E4416; border-color:rgba(199,131,59,0.25);">
+      <div class="label">Warning</div>
+      <div class="body">Needs review · expiring soon</div>
+      <div class="pill" style="background:#F0C597;color:#6E4416">
+        <span class="dot" style="background:#C7833B"></span>Review
+      </div>
+    </div>
+    <div class="state" style="background:#F2D4D4; color:#6A2727; border-color:rgba(177,69,69,0.28);">
+      <div class="label">Danger</div>
+      <div class="body">Failed · removed · conflict</div>
+      <div class="pill" style="background:#E6B5B5;color:#6A2727">
+        <span class="dot" style="background:#B14545"></span>Conflict
+      </div>
+    </div>
+    <div class="state" style="background:#CCDEF6; color:#1F3653; border-color:rgba(73,99,122,0.25);">
+      <div class="label">Info</div>
+      <div class="body">Draft · in progress</div>
+      <div class="pill" style="background:#B4CAE6;color:#1F3653">
+        <span class="dot" style="background:#49637A"></span>Draft
+      </div>
+    </div>
+  </div>
+</body></html>

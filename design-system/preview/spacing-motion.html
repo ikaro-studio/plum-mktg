@@ -1,0 +1,40 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Motion</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 24px; justify-content: center; gap: 12px; }
+  .row { gap: 14px; align-items: center; }
+  .specimen { padding: 18px 22px; }
+  .demo { display: flex; align-items: center; gap: 12px; }
+  .pellet { width: 24px; height: 24px; border-radius: 999px; background: var(--peach-400); position: relative; }
+  .track { flex: 1; height: 24px; background: rgba(74,27,59,0.06); border-radius: 999px; overflow: hidden; position: relative; }
+  .move { position: absolute; top:0; left:0; width: 24px; height: 24px; border-radius: 999px; background: var(--rose-500); animation: m 2.4s infinite var(--ease-soft); }
+  @keyframes m { 0%{left:0} 50%{left:calc(100% - 24px)} 100%{left:0} }
+  .nm  { font-family: var(--font-sans); font-size: 12px; font-weight: 600; color: var(--fg1); width: 110px; }
+  .lbl { font-family: var(--font-mono); font-size: 10px; color: var(--fg3); }
+</style>
+</head>
+<body>
+  <div class="specimen">
+    <div class="col" style="gap: 14px">
+      <div class="demo">
+        <div class="nm">ease-soft</div>
+        <div class="track"><div class="move"></div></div>
+        <div class="lbl">default · gentle settle</div>
+      </div>
+      <div class="demo">
+        <div class="nm">durations</div>
+        <div class="lbl" style="font-size:11px">
+          <span style="color:var(--fg2)">120ms</span> hover &nbsp;·&nbsp;
+          <span style="color:var(--fg2)">200ms</span> press &nbsp;·&nbsp;
+          <span style="color:var(--fg2)">320ms</span> entrance &nbsp;·&nbsp;
+          <span style="color:var(--fg2)">560ms</span> reveal
+        </div>
+      </div>
+      <div class="demo">
+        <div class="nm">avoid</div>
+        <div class="lbl">no spring · no parallax · no overshoot · fades over slides</div>
+      </div>
+    </div>
+  </div>
+</body></html>
