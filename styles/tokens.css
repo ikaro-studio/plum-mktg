@@ -296,13 +296,10 @@ code, .mono {
   border-radius: var(--radius-xs);
 }
 
-a {
-  color: var(--rose-500);
-  text-decoration: none;
-  border-bottom: 1px solid currentColor;
-  transition: color var(--dur-2) var(--ease-soft);
-}
-a:hover { color: var(--accent-hover); }
+/* No global `a {}` rule — link styling is owned end-to-end by
+   <Link /> (components/ui/Link.tsx) or per-component Tailwind classes.
+   A site-wide anchor rule was leaking a border-bottom underline onto
+   every link in the app, including ones that meant to have none. */
 
 /* Selection in plum, never default blue */
 ::selection { background: var(--peach-400); color: var(--plum-800); }

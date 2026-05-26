@@ -12,11 +12,13 @@ type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
 };
 
 /**
- * Inline link treatment: accent color with a hairline underline that wipes in
- * from the left on hover. No always-on underline — the line lives only when
- * you're touching it.
+ * Inline link: text in accent, no underline. On hover, a soft accent-colored
+ * gradient + blur blooms behind the text. The gradient direction inverts
+ * between modes — rising from below in light, descending from above in dark
+ * — so the moment reads as "warmth from the page" or "warmth from the sky"
+ * depending on theme.
  *
- * Quiet variant: color shift only, used in nav/footer/dense lists.
+ * Quiet variant: nav/footer-style, color shift only.
  */
 export default function Link({
   href,
@@ -30,18 +32,24 @@ export default function Link({
   const toneStyles =
     tone === 'inline'
       ? cn(
-          'relative inline-flex items-baseline gap-0.5',
+          // Layout — isolate creates a stacking context so -z-10 stays local
+          'relative isolate inline-flex items-baseline gap-0.5',
+          // Resting state
           'text-accent transition-colors duration-200 ease-soft',
           'hover:text-accent-hover',
-          // Wipe-in underline via pseudo-element. Sits 2px below baseline.
-          "after:content-[''] after:absolute after:left-0 after:bottom-[-2px]",
-          'after:h-[1px] after:w-0 after:bg-current',
-          'after:transition-[width] after:duration-300 after:ease-soft',
-          'hover:after:w-full focus-visible:after:w-full'
+          // Hover glow — pseudo-element with blurred accent gradient.
+          // Light: gradient rises from below the text. Dark: descends from above.
+          "after:content-[''] after:absolute after:-inset-x-2 after:-inset-y-1.5 after:-z-10",
+          'after:rounded-md after:blur-[6px]',
+          'after:bg-[linear-gradient(0deg,var(--accent)_0%,transparent_75%)]',
+          'dark:after:bg-[linear-gradient(180deg,var(--accent)_0%,transparent_75%)]',
+          'after:opacity-0 after:pointer-events-none',
+          'after:transition-opacity after:duration-300 after:ease-soft',
+          'hover:after:opacity-40 focus-visible:after:opacity-40'
         )
       : cn(
           'inline-flex items-baseline gap-0.5',
-          'text-fg-muted no-underline transition-colors duration-200 ease-soft',
+          'text-fg-muted transition-colors duration-200 ease-soft',
           'hover:text-fg-strong'
         );
 
