@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50',
+        'fixed inset-x-0 top-0 z-50',
         'bg-surface/70 backdrop-blur-[18px] backdrop-saturate-150 border-b border-line'
       )}
     >
