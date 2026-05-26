@@ -142,7 +142,8 @@ export default function Pricing({
                       </p>
                       <p className="mt-4 text-ink-2">{price.description}</p>
                       <Button
-                        variant="slim"
+                        variant="primary"
+                        size="sm"
                         type="button"
                         loading={priceIdLoading === price.id}
                         onClick={() => handleCheckout(price)}
@@ -248,7 +249,8 @@ export default function Pricing({
                     </span>
                   </p>
                   <Button
-                    variant="slim"
+                    variant="primary"
+                    size="sm"
                     type="button"
                     disabled={!session}
                     loading={priceIdLoading === price.id}

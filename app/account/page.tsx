@@ -109,7 +109,8 @@ export default async function Account() {
                 64 characters maximum
               </p>
               <Button
-                variant="slim"
+                variant="secondary"
+                size="sm"
                 type="submit"
                 form="nameForm"
                 disabled={true}
@@ -141,7 +142,8 @@ export default async function Account() {
                 We will email you to verify the change.
               </p>
               <Button
-                variant="slim"
+                variant="secondary"
+                size="sm"
                 type="submit"
                 form="emailForm"
                 disabled={true}
