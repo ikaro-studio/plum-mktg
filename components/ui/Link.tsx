@@ -12,8 +12,11 @@ type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
 };
 
 /**
- * Auto-routes between next/link (internal) and an external anchor.
- * External links get a small ArrowUpRight glyph and the right rel/target.
+ * Inline link treatment: accent color with a hairline underline that wipes in
+ * from the left on hover. No always-on underline — the line lives only when
+ * you're touching it.
+ *
+ * Quiet variant: color shift only, used in nav/footer/dense lists.
  */
 export default function Link({
   href,
@@ -27,13 +30,19 @@ export default function Link({
   const toneStyles =
     tone === 'inline'
       ? cn(
-          'text-rose-500 underline underline-offset-4 decoration-rose-500/30',
-          'transition-colors duration-200 ease-soft',
-          'hover:decoration-rose-500'
+          'relative inline-flex items-baseline gap-0.5',
+          'text-accent transition-colors duration-200 ease-soft',
+          'hover:text-accent-hover',
+          // Wipe-in underline via pseudo-element. Sits 2px below baseline.
+          "after:content-[''] after:absolute after:left-0 after:bottom-[-2px]",
+          'after:h-[1px] after:w-0 after:bg-current',
+          'after:transition-[width] after:duration-300 after:ease-soft',
+          'hover:after:w-full focus-visible:after:w-full'
         )
       : cn(
-          'text-ink-2 no-underline transition-colors duration-200 ease-soft',
-          'hover:text-plum-900'
+          'inline-flex items-baseline gap-0.5',
+          'text-fg-muted no-underline transition-colors duration-200 ease-soft',
+          'hover:text-fg-strong'
         );
 
   const inner = (
@@ -43,11 +52,17 @@ export default function Link({
         <ArrowUpRight
           size={14}
           strokeWidth={1.75}
-          className="ml-0.5 inline-block align-[-0.125em]"
+          className="ml-0.5 inline-block translate-y-[1px]"
           aria-hidden
         />
       )}
     </>
+  );
+
+  const cls = cn(
+    toneStyles,
+    'focus-visible:outline-none focus-visible:shadow-focus rounded-sm',
+    className
   );
 
   if (isExternal) {
@@ -56,7 +71,7 @@ export default function Link({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className={cn(toneStyles, className)}
+        className={cls}
         {...rest}
       >
         {inner}
@@ -65,7 +80,7 @@ export default function Link({
   }
 
   return (
-    <NextLink href={href} className={cn(toneStyles, className)} {...rest}>
+    <NextLink href={href} className={cls} {...rest}>
       {inner}
     </NextLink>
   );

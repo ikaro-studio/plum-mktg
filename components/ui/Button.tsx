@@ -27,19 +27,19 @@ const iconSize: Record<Size, number> = { sm: 16, md: 18, lg: 20 };
 
 const variants: Record<Variant, string> = {
   primary: cn(
-    'bg-plum-800 text-cream-100 shadow-xs',
-    'hover:bg-plum-700 hover:shadow-sm',
-    'active:bg-plum-900 active:scale-[0.98] active:shadow-none'
+    'bg-action text-action-fg shadow-xs',
+    'hover:bg-action-hover hover:shadow-sm',
+    'active:bg-action-press active:scale-[0.98] active:shadow-none'
   ),
   secondary: cn(
-    'bg-transparent text-plum-800 border border-line-strong shadow-none',
-    'hover:bg-plum-800/5 hover:border-line-strong',
-    'active:bg-plum-800/10 active:scale-[0.98]'
+    'bg-transparent text-fg-strong border border-line-strong shadow-none',
+    'hover:bg-fg-strong/[0.05]',
+    'active:bg-fg-strong/[0.1] active:scale-[0.98]'
   ),
   ghost: cn(
-    'bg-transparent text-ink-2 shadow-none',
-    'hover:bg-plum-800/5 hover:text-ink-1',
-    'active:bg-plum-800/10 active:scale-[0.98]'
+    'bg-transparent text-fg-muted shadow-none',
+    'hover:bg-fg-strong/[0.05] hover:text-fg-strong',
+    'active:bg-fg-strong/[0.1] active:scale-[0.98]'
   ),
   accent: cn(
     'bg-peach-400 text-plum-900 shadow-xs',

@@ -47,6 +47,8 @@ This plan covers the **public marketing site** only:
 
 **Launch posture: closed beta.** Plum launches as a closed beta — there is **no public pricing page at v1**. Every "buy" or "subscribe" CTA on the old site is replaced by an **early-access email capture**. The Supabase backend stays in place to receive captures (and to support sign-in once invites go out), but Stripe-driven pricing UI is mothballed until we open up to general availability.
 
+**Theming.** The site ships with both a light (warm cream) and dark (deep plum) theme, with a sun/moon toggle in the navbar. The dark palette stays plum-warm — never neutral gray — and the focus ring stays peach in both modes. Theme is persisted in `localStorage` via `next-themes` (`storageKey="plum-theme"`). The previous "one cream-bias palette" stance was scoped out post-design-review; both themes use the same token system, only the semantic CSS vars flip.
+
 **Why we're rebuilding rather than fixing.** A marketing site is small enough (~6–8 routes, mostly content) that a clean rebuild on a modern stack ships faster than untangling a broken one — and we get a proper design-system-driven foundation that the next two years of marketing work will sit on.
 
 **Build strategy.** The rebuild lives on a feature branch (`rebuild`) alongside `main`. We do not touch the deployed subscription starter; we cut over with a single PR once Phase 4 is complete and Vercel preview is reviewed.
@@ -327,9 +329,9 @@ For every component below: respect the **voice and casing rules** from the plum-
 ### 7.1 Navbar
 
 **Anatomy (left → right):**
-- Wordmark (links to `/`). Use `plum-wordmark.svg`, colored `plum-800`. Height 22px desktop, 20px mobile.
+- Lockup (links to `/`). Two SVG variants: `public/brand/plum-lockup.svg` (color gradient on cream) and `public/brand/plum-lockup-white.svg` (cream/transparent on dark). Both are rendered, and `dark:hidden` / `hidden dark:block` flip them with the theme so the right one always shows without a JS-driven flicker. Height ≈ 28px desktop, 24px mobile.
 - Primary nav items, centered: `Product`, `Customers`, `Resources`. Sentence case. *(Pricing is intentionally absent during closed beta.)*
-- Right cluster: `Sign in` text link + primary `Request access` button (opens the early-access modal, see §7.x).
+- Right cluster: `Sign in` text link + a sun/moon **theme toggle** + primary `Request access` button (opens the early-access modal). The toggle is an icon button (Lucide `<Sun />` / `<Moon />`, 18px stroke 1.75) that cross-fades on click — `next-themes` writes to `localStorage` under `plum-theme`.
 
 **Dimensions:**
 - Height: 72px desktop (≥1024px), 64px tablet/mobile.
@@ -474,8 +476,9 @@ A semantic `<Link>` wrapper that handles internal (Next.js routes) vs external a
 
 - Internal links (start with `/`): render `next/link`.
 - External links: render `<a target="_blank" rel="noopener noreferrer">`, append a tiny Lucide `<ArrowUpRight />` 14px to the right.
-- Default style — when used inline in body copy: `text-rose-500 underline underline-offset-4 decoration-rose-500/30`, hover → `decoration-rose-500`. Underline thickness 1px.
-- "Quiet link" variant (used in nav/footer): no underline, color/hover per nav spec.
+- Default style (inline in body copy): `text-accent` (rose-500 light / peach-400 dark), no underline at rest. On hover, a 1px underline wipes in from the left over `duration-300 ease-soft` via an absolutely-positioned `::after` pseudo-element animating from `width: 0` to `width: 100%`; text color shifts to `text-accent-hover` at the same time. The underline lives only when you're touching it.
+- "Quiet link" variant (used in nav/footer): no underline at all, color shift only (`text-fg-muted` → `text-fg-strong`).
+- The old always-on `underline underline-offset-4` treatment is retired everywhere.
 
 ---
 
@@ -632,6 +635,8 @@ Brief specs only — full visual spec defers to the brand brief's section rhythm
 
 - **`<FAQ>`** — accordion using Headless UI's `<Disclosure>`. Each item: question 18px medium, plus icon rotates 45° on open. Body fades in via `duration-3 ease-soft`. No slide.
 
+- **`<ProcessBanner>`** — center-focused section pattern. Accepts `eyebrow`, `headline`, `body`, and an array of `steps` `({ number, title, body })`. Renders an eyebrow + H3 + body centered at the top, then a wide rounded card (`rounded-[28px]`, `border-line`, `bg-surface-elevated`) below with `md:grid-cols-3 md:divide-x md:divide-line` for the step columns. On mobile the steps stack with a top border between them. Used on the home page between the feature rows and the final CTA.
+
 - **`<CTA>`** — final-section call-to-action. Big eyebrow + h2 + body + (during closed beta) `<EarlyAccessForm tone="panel">` inline, instead of a button. `bg-gradient-feng` panel (sage→peach), `rounded-hero` (32px), full-bleed within container. When we open GA, swap the form back to a `<Button>`.
 
 - **`<AccessRequestDialog>`** — Headless UI `<Dialog>` that wraps `<EarlyAccessForm tone="panel">`. Triggered by every `Request access` button across the site (nav, hero secondary spots, etc.). Backdrop: `bg-plum-900/40 backdrop-blur-sm`. Panel: `rounded-modal` (24px), `shadow-lg`, `bg-white`, max-width 480px. Animate-in via fade + 4px translate-y, `duration-3 ease-soft`. Closes on success after a 1.6s confirmation hold. Focus trap and scroll lock come free from Headless UI.
@@ -651,7 +656,7 @@ Seven beats, ladderring to the early-access form. No logo wall and no testimonia
 1. **Hero** — eyebrow `DIGITAL ASSET MANAGEMENT — CLOSED BETA` / headline `A place a brand lives, intact.` / body `We facilitate the incorporation and consolidation of brand assets — so your library stays the source of truth.` / primary CTA `Request access` (opens `<AccessRequestDialog>`) / secondary `See how it works` (anchors to first feature row). Hero visual sits below copy: a `<PlumAppMock>` component (an in-repo composition of asset grid + sidebar + filter chips, built from Plum tokens; swap for a real screenshot when one ships).
 2. **Beta context strip** — a hairline-bordered single-row band. Eyebrow `ROUND TWO OPENS SOON` + one sentence: `We invite in waves of 30 brands. The next round opens at the end of the month.` No counter, no countdown.
 3. **FeatureRow ×3** — alternating L/R. Library / Workspace / Collections, each with a small `<PlumAppMock>` variant or screenshot.
-4. **Voice moment** — five lowercase `<Phrase>` words on a single horizontal line, generous gaps, no decoration: `helpful` `balance` `inviting` `wealth` `gentle`. The page's typographic signature.
+4. **Process banner** — center-focused section that bridges features → CTA. Eyebrow `HOW IT WORKS` / h3 `We open the library in waves.` / one-paragraph body, all centered with a max-width around 640px. Below that, a wide `bg-surface-elevated` card spanning the container, divided into three steps (`01 Request access`, `02 Wait for the wave`, `03 Settle into the library`) with hairline `border-line` dividers between them. Step numbers use `<Phrase>` weight in `text-accent` for a soft punctuation. *Replaces the earlier "voice moment" of lowercase phrase words — the process card is more concrete and earns its place ahead of the CTA.*
 5. **CTA panel** — full-bleed `bg-gradient-feng` (sage→peach), `rounded-hero`. Eyebrow `JOIN THE NEXT WAVE` / h2 `Bloom your brand.` / one-line body / inline `<EarlyAccessForm tone="panel">`. The page's terminal moment; nothing after it but the footer.
 
 ### Product (`/product`)
@@ -772,7 +777,6 @@ So nobody has to ask. Anything below is a separate ticket and should not creep i
 - Headless CMS integration. Content stays in-repo for v1.
 - Internationalization. English-only at launch; locale switcher in footer is wireframe-only.
 - Animated illustrations or hand-drawn elements (explicitly out per brand brief).
-- Light/dark mode toggle — Plum is one cream-bias palette, by design.
 - A/B testing infrastructure.
 - Live chat widget.
 - Cookie consent banner — needed before launch but treated as a small standalone task after the build is done.

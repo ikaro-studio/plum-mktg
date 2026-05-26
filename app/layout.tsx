@@ -2,6 +2,7 @@ import SupabaseProvider from './supabase-provider';
 import Footer from '@/components/global/Footer';
 import Navbar from '@/components/global/Navbar';
 import SkipToContent from '@/components/global/SkipToContent';
+import ThemeProvider from '@/components/global/ThemeProvider';
 import { Sora, Quicksand } from 'next/font/google';
 import { PropsWithChildren } from 'react';
 import 'styles/main.css';
@@ -53,14 +54,20 @@ export const metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en" className={`${sora.variable} ${quicksand.variable}`}>
-      <body className="bg-cream-100 text-plum-800 font-sans antialiased">
-        <SupabaseProvider>
-          <SkipToContent />
-          <Navbar />
-          <main id="main">{children}</main>
-          <Footer />
-        </SupabaseProvider>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${sora.variable} ${quicksand.variable}`}
+    >
+      <body className="bg-surface text-fg font-sans antialiased">
+        <ThemeProvider>
+          <SupabaseProvider>
+            <SkipToContent />
+            <Navbar />
+            <main id="main">{children}</main>
+            <Footer />
+          </SupabaseProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

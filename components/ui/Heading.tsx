@@ -17,7 +17,7 @@ export default function Heading({
   children,
   ...rest
 }: Props) {
-  const base = 'text-plum-900 text-balance';
+  const base = 'text-fg-strong text-balance';
   switch (level) {
     case 1:
       return (

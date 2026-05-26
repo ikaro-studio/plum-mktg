@@ -15,13 +15,13 @@ const Input = forwardRef<HTMLInputElement, Props>(function Input(
       aria-invalid={invalid || undefined}
       className={cn(
         'block w-full h-11 px-[14px] rounded-md',
-        'bg-white border text-plum-900 placeholder:text-ink-3',
+        'bg-surface-elevated border text-fg-strong placeholder:text-fg-subtle',
         'transition-all duration-200 ease-soft',
         'focus:outline-none focus:shadow-focus',
         invalid
-          ? 'border-rose-500'
-          : 'border-line-strong hover:border-rose-300 focus:border-rose-500',
-        'disabled:bg-cream-200/50 disabled:cursor-not-allowed',
+          ? 'border-accent'
+          : 'border-line-strong hover:border-rose-300 focus:border-accent',
+        'disabled:bg-surface-sunken/50 disabled:cursor-not-allowed',
         className
       )}
       {...rest}

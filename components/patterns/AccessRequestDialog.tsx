@@ -45,12 +45,12 @@ export default function AccessRequestDialog({ open, onClose }: Props) {
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 translate-y-1"
           >
-            <DialogPanel className="relative w-full max-w-[480px] rounded-xl bg-white shadow-lg p-8 md:p-10">
+            <DialogPanel className="relative w-full max-w-[480px] rounded-xl bg-surface-elevated shadow-lg p-8 md:p-10">
               <button
                 type="button"
                 onClick={onClose}
                 aria-label="Close"
-                className="absolute right-4 top-4 inline-flex h-8 w-8 items-center justify-center rounded-md text-ink-2 transition-colors hover:bg-plum-800/5 hover:text-plum-900 focus-visible:outline-none focus-visible:shadow-focus"
+                className="absolute right-4 top-4 inline-flex h-8 w-8 items-center justify-center rounded-md text-fg-muted transition-colors hover:bg-fg-strong/[0.05] hover:text-fg-strong focus-visible:outline-none focus-visible:shadow-focus"
               >
                 <X size={18} strokeWidth={1.75} aria-hidden />
               </button>

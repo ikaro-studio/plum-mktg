@@ -2,7 +2,7 @@ import BetaContextStrip from '@/components/patterns/BetaContextStrip';
 import CTA from '@/components/patterns/CTA';
 import FeatureRow from '@/components/patterns/FeatureRow';
 import Hero from '@/components/patterns/Hero';
-import VoiceMoment from '@/components/patterns/VoiceMoment';
+import ProcessBanner from '@/components/patterns/ProcessBanner';
 import Section from '@/components/layout/Section';
 import { home } from '@/content/home';
 
@@ -36,8 +36,13 @@ export default function HomePage() {
         ))}
       </Section>
 
-      <Section size="md">
-        <VoiceMoment words={home.voiceWords} />
+      <Section size="lg">
+        <ProcessBanner
+          eyebrow={home.process.eyebrow}
+          headline={home.process.headline}
+          body={home.process.body}
+          steps={home.process.steps}
+        />
       </Section>
 
       <Section size="lg">

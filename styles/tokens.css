@@ -38,6 +38,7 @@
   --bg-inverse: var(--plum-900);
 
   /* ----- Semantic text ----- */
+  --fg-strong: var(--plum-900);   /* strongest — headlines                         */
   --fg1: var(--plum-800);         /* primary body                                  */
   --fg2: #6B4A5C;                 /* secondary text — derived plum-mid             */
   --fg3: #9B8189;                 /* tertiary / metadata                           */
@@ -147,6 +148,52 @@
   --dur-2: 200ms;
   --dur-3: 320ms;
   --dur-4: 560ms;
+}
+
+/* ============================================================
+   Dark mode — class-based, plum-warm bias (never neutral gray)
+   Activated by `<html class="dark">` via next-themes.
+   Only the semantic tokens flip; brand colors stay constant.
+   ============================================================ */
+:root.dark {
+  /* Surfaces — derived from plum-900, kept warm */
+  --bg: #221421;                /* deeper than plum-900, slightly cooler */
+  --bg-elevated: #2D1928;       /* card surface */
+  --bg-sunken: #1A0E1A;         /* recessed */
+  --bg-inverse: var(--cream-100);
+
+  /* Foreground — rose-tinted muted, never gray */
+  --fg-strong: var(--cream-100);
+  --fg1: #E8DCDE;               /* slightly muted from cream for body */
+  --fg2: #C8A9AF;               /* rose-300 — warm muted secondary */
+  --fg3: #8E777C;                /* darker warm muted tertiary */
+  --fg-inverse: var(--plum-900);
+  --fg-on-peach: var(--plum-900);
+  --fg-on-plum: var(--cream-100);
+
+  /* Dividers — subtle cream at low opacity */
+  --line: rgba(241, 237, 238, 0.08);
+  --line-strong: rgba(241, 237, 238, 0.15);
+  --line-dark: rgba(241, 237, 238, 0.25);
+
+  /* Accents — peach pops on dark; rose muddies. Swap accent role. */
+  --accent: var(--peach-400);
+  --accent-hover: #F7A98A;
+  --fg-accent: var(--peach-400);
+
+  /* Action — invert: cream button on dark surface, plum text */
+  --action: var(--cream-100);
+  --action-fg: var(--plum-900);
+  --action-hover: #E8DCDE;
+  --action-press: #D9C9CD;
+
+  /* Shadows — soft black on dark; warm-plum shadows are invisible */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.28), 0 1px 2px rgba(0, 0, 0, 0.18);
+  --shadow-md: 0 8px 24px -8px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.22);
+  --shadow-lg: 0 24px 56px -20px rgba(0, 0, 0, 0.6), 0 6px 12px rgba(0, 0, 0, 0.28);
+  --shadow-inner: inset 0 0 0 1px rgba(241, 237, 238, 0.06);
+  /* Focus ring stays peach — it's the brand focus tell, works on both modes */
 }
 
 /* ============================================================

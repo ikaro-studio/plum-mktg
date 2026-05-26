@@ -56,7 +56,7 @@ export default function FeatureRow({
                 <Check
                   size={18}
                   strokeWidth={2}
-                  className="text-rose-500 shrink-0 mt-0.5"
+                  className="text-accent shrink-0 mt-0.5"
                   aria-hidden
                 />
                 <span className="leading-snug">{p}</span>

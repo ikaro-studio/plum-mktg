@@ -12,7 +12,7 @@ export default function Phrase({ className, ...rest }: Props) {
   return (
     <span
       className={cn(
-        'font-soft font-light lowercase text-plum-800',
+        'font-soft font-light lowercase text-fg-strong',
         'text-[28px] md:text-[36px] leading-snug tracking-normal',
         className
       )}

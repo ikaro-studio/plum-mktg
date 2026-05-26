@@ -69,7 +69,7 @@ export default async function Account() {
       <div className="max-w-6xl px-4 py-8 mx-auto sm:px-6 sm:pt-24 lg:px-8">
         <div className="sm:align-center sm:flex sm:flex-col">
           <p className="eyebrow text-center mb-3">YOUR WORKSPACE</p>
-          <h1 className="text-4xl font-bold text-plum-800 sm:text-center sm:text-6xl tracking-display">
+          <h1 className="text-4xl font-bold text-fg-strong sm:text-center sm:text-6xl tracking-display">
             Account
           </h1>
           <p className="max-w-2xl m-auto mt-5 text-lg text-ink-2 sm:text-center">
@@ -87,13 +87,13 @@ export default async function Account() {
           }
           footer={<ManageSubscriptionButton session={session} />}
         >
-          <div className="mt-6 mb-2 text-2xl font-semibold text-plum-800 tracking-display">
+          <div className="mt-6 mb-2 text-2xl font-semibold text-fg-strong tracking-display">
             {subscription ? (
               `${subscriptionPrice}/${subscription?.prices?.interval}`
             ) : (
               <Link
                 href="/"
-                className="text-rose-500 hover:text-rose-400 underline underline-offset-4"
+                className="relative inline-flex items-baseline text-accent transition-colors duration-200 ease-soft hover:text-accent-hover after:content-[''] after:absolute after:left-0 after:bottom-[-2px] after:h-[1px] after:w-0 after:bg-current after:transition-[width] after:duration-300 after:ease-soft hover:after:w-full"
               >
                 Choose your plan
               </Link>
@@ -125,7 +125,7 @@ export default async function Account() {
               <input
                 type="text"
                 name="name"
-                className="w-full sm:w-1/2 p-3 rounded-md bg-white border border-line text-plum-800 placeholder:text-ink-3 focus:outline-none focus:border-rose-500 focus:shadow-focus transition duration-200 ease-soft"
+                className="w-full sm:w-1/2 p-3 rounded-md bg-surface-elevated border border-line-strong text-fg-strong placeholder:text-fg-subtle focus:outline-none focus:border-accent focus:shadow-focus transition duration-200 ease-soft"
                 defaultValue={userDetails?.full_name ?? ''}
                 placeholder="Your name"
                 maxLength={64}
@@ -158,7 +158,7 @@ export default async function Account() {
               <input
                 type="text"
                 name="email"
-                className="w-full sm:w-1/2 p-3 rounded-md bg-white border border-line text-plum-800 placeholder:text-ink-3 focus:outline-none focus:border-rose-500 focus:shadow-focus transition duration-200 ease-soft"
+                className="w-full sm:w-1/2 p-3 rounded-md bg-surface-elevated border border-line-strong text-fg-strong placeholder:text-fg-subtle focus:outline-none focus:border-accent focus:shadow-focus transition duration-200 ease-soft"
                 defaultValue={user ? user.email : ''}
                 placeholder="Your email"
                 maxLength={64}
@@ -180,13 +180,13 @@ interface Props {
 
 function Card({ title, description, footer, children }: Props) {
   return (
-    <div className="w-full max-w-3xl m-auto my-6 rounded-lg bg-white border border-line shadow-sm overflow-hidden">
+    <div className="w-full max-w-3xl m-auto my-6 rounded-lg bg-surface-elevated border border-line shadow-sm overflow-hidden">
       <div className="px-6 py-5">
-        <h3 className="mb-1 text-xl font-semibold text-plum-800">{title}</h3>
-        <p className="text-ink-2 text-sm leading-relaxed">{description}</p>
+        <h3 className="mb-1 text-xl font-semibold text-fg-strong">{title}</h3>
+        <p className="text-fg-muted text-sm leading-relaxed">{description}</p>
         {children}
       </div>
-      <div className="px-6 py-4 border-t border-line bg-cream-100 text-ink-2">
+      <div className="px-6 py-4 border-t border-line bg-surface text-fg-muted">
         {footer}
       </div>
     </div>

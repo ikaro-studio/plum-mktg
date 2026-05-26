@@ -47,7 +47,28 @@ export const home = {
       mockVariant: 'collections' as const
     }
   ],
-  voiceWords: ['helpful', 'balance', 'inviting', 'wealth', 'gentle'] as const,
+  process: {
+    eyebrow: 'How it works',
+    headline: 'We open the library in waves.',
+    body: 'Plum is invite-only during the beta. Each round we let in 30 brands — small enough to give every team real attention, big enough to keep the library humming.',
+    steps: [
+      {
+        number: '01',
+        title: 'Request access.',
+        body: 'Drop your email below and we’ll add you to the list.'
+      },
+      {
+        number: '02',
+        title: 'Wait for the wave.',
+        body: 'We open a round of invites at the end of each month.'
+      },
+      {
+        number: '03',
+        title: 'Settle into the library.',
+        body: 'Your workspace is ready within a week of accepting.'
+      }
+    ]
+  },
   cta: {
     eyebrow: 'Join the next wave',
     headline: 'Bloom your brand.',

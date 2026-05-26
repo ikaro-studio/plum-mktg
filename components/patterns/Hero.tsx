@@ -46,7 +46,7 @@ export default function Hero({
             <RequestAccessButton size="lg" withIcon />
             <NextLink
               href={secondaryCtaHref}
-              className="group inline-flex items-center gap-1.5 text-[15px] font-medium text-ink-1 hover:text-plum-900 transition-colors duration-200 ease-soft px-2 py-2 rounded-md focus-visible:outline-none focus-visible:shadow-focus"
+              className="group inline-flex items-center gap-1.5 text-[15px] font-medium text-fg-strong hover:text-accent transition-colors duration-200 ease-soft px-2 py-2 rounded-md focus-visible:outline-none focus-visible:shadow-focus"
             >
               {secondaryCta}
               <ArrowDownRight

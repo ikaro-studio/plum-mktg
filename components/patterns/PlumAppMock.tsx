@@ -28,20 +28,20 @@ export default function PlumAppMock({
           : undefined
       }
       className={cn(
-        'relative overflow-hidden bg-white border border-line shadow-lg',
+        'relative overflow-hidden bg-surface-elevated border border-line shadow-lg',
         'rounded-2xl',
         className
       )}
     >
       {/* Window chrome — quiet, no trafficked dots */}
-      <div className="flex items-center gap-2 px-5 h-10 border-b border-line bg-cream-100/60">
+      <div className="flex items-center gap-2 px-5 h-10 border-b border-line bg-surface/60">
         <div className="flex items-center gap-1.5">
           <span className="h-2 w-2 rounded-full bg-rose-300/70" aria-hidden />
           <span className="h-2 w-2 rounded-full bg-peach-400/70" aria-hidden />
           <span className="h-2 w-2 rounded-full bg-sage-300/70" aria-hidden />
         </div>
         <div className="flex-1" />
-        <div className="text-[11px] text-ink-3 tracking-wide">
+        <div className="text-[11px] text-fg-subtle tracking-wide">
           plum.app/library
         </div>
       </div>
@@ -81,7 +81,7 @@ function Sidebar({ variant }: { variant: Variant }) {
   return (
     <aside className="w-[180px] md:w-[210px] shrink-0 border-r border-line p-4 flex flex-col gap-1">
       <div className="px-2 pb-3 pt-1">
-        <div className="text-[11px] uppercase tracking-eyebrow font-semibold text-ink-3">
+        <div className="text-[11px] uppercase tracking-eyebrow font-semibold text-fg-subtle">
           Brands
         </div>
       </div>
@@ -91,8 +91,8 @@ function Sidebar({ variant }: { variant: Variant }) {
           className={cn(
             'flex items-center gap-2.5 px-2 py-2 rounded-md text-[13px]',
             b.active
-              ? 'bg-plum-800/[0.06] text-plum-900 font-medium'
-              : 'text-ink-2'
+              ? 'bg-fg-strong/[0.06] text-fg-strong font-medium'
+              : 'text-fg-muted'
           )}
         >
           <span
@@ -102,10 +102,10 @@ function Sidebar({ variant }: { variant: Variant }) {
           <span className="truncate">{b.name}</span>
         </div>
       ))}
-      <div className="mt-auto px-2 pt-4 pb-1 flex items-center gap-2 text-[12px] text-ink-3">
+      <div className="mt-auto px-2 pt-4 pb-1 flex items-center gap-2 text-[12px] text-fg-subtle">
         <span
           aria-hidden
-          className="inline-block h-5 w-5 rounded-full bg-plum-800 text-cream-100 grid place-items-center text-[10px] font-bold"
+          className="inline-block h-5 w-5 rounded-full bg-action text-action-fg grid place-items-center text-[10px] font-bold"
         >
           A
         </span>
@@ -128,11 +128,11 @@ function Toolbar({ variant }: { variant: Variant }) {
   })();
   return (
     <div className="h-14 px-5 border-b border-line flex items-center gap-3">
-      <div className="flex-1 max-w-[220px] h-9 rounded-md bg-cream-100 border border-line flex items-center gap-2 px-3">
-        <span aria-hidden className="text-ink-3 text-[14px]">
+      <div className="flex-1 max-w-[220px] h-9 rounded-md bg-surface border border-line flex items-center gap-2 px-3">
+        <span aria-hidden className="text-fg-subtle text-[14px]">
           ⌕
         </span>
-        <span className="text-[13px] text-ink-3">Search assets</span>
+        <span className="text-[13px] text-fg-subtle">Search assets</span>
       </div>
       <div className="hidden md:flex items-center gap-1.5 overflow-hidden">
         {filters.map((f, i) => (
@@ -141,8 +141,8 @@ function Toolbar({ variant }: { variant: Variant }) {
             className={cn(
               'inline-flex h-7 items-center px-3 rounded-full text-[12px] whitespace-nowrap',
               i === 0
-                ? 'bg-plum-800 text-cream-100'
-                : 'bg-cream-100 text-ink-2'
+                ? 'bg-action text-action-fg'
+                : 'bg-surface text-fg-muted'
             )}
           >
             {f}
@@ -150,7 +150,7 @@ function Toolbar({ variant }: { variant: Variant }) {
         ))}
       </div>
       <div className="flex-1" />
-      <div className="text-[11px] text-ink-3 tracking-wide hidden md:block">
+      <div className="text-[11px] text-fg-subtle tracking-wide hidden md:block">
         12 480 assets
       </div>
     </div>
@@ -261,8 +261,8 @@ function AssetGrid({ variant }: { variant: Variant }) {
               {t.node}
             </div>
             <div className="flex items-baseline justify-between gap-2 min-w-0">
-              <span className="text-[12px] text-ink-1 truncate">{t.meta}</span>
-              <span className="text-[11px] text-ink-3 shrink-0">{t.size}</span>
+              <span className="text-[12px] text-fg truncate">{t.meta}</span>
+              <span className="text-[11px] text-fg-subtle shrink-0">{t.size}</span>
             </div>
           </div>
         ))}

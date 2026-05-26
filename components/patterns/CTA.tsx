@@ -37,7 +37,7 @@ export default function CTA({ eyebrow, headline, body }: Props) {
             </Body>
           </div>
           <div className="lg:col-span-5">
-            <div className="rounded-2xl bg-white p-6 md:p-7 shadow-md">
+            <div className="rounded-2xl bg-surface-elevated p-6 md:p-7 shadow-md">
               <EarlyAccessForm tone="panel" source="home-cta" />
             </div>
           </div>

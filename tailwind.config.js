@@ -2,7 +2,7 @@ const { fontFamily } = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ['class', '[data-theme="dark"]'],
+  darkMode: 'class',
   content: [
     'app/**/*.{ts,tsx}',
     'components/**/*.{ts,tsx}',
@@ -15,6 +15,7 @@ module.exports = {
         soft: ['var(--font-soft)', 'Quicksand', ...fontFamily.sans]
       },
       colors: {
+        // ---- Brand colors — constant across modes ----
         plum: {
           900: '#351B30',
           800: '#4A1B3B',
@@ -36,14 +37,42 @@ module.exports = {
           100: '#F1EDEE',
           200: '#EAE3E4'
         },
+
+        // ---- Semantic tokens — flip with .dark on <html> ----
+        surface: {
+          DEFAULT: 'var(--bg)',
+          elevated: 'var(--bg-elevated)',
+          sunken: 'var(--bg-sunken)',
+          inverse: 'var(--bg-inverse)'
+        },
+        fg: {
+          DEFAULT: 'var(--fg1)',
+          strong: 'var(--fg-strong)',
+          muted: 'var(--fg2)',
+          subtle: 'var(--fg3)',
+          inverse: 'var(--fg-inverse)',
+          accent: 'var(--fg-accent)'
+        },
+        // Legacy aliases — kept so existing components keep working;
+        // both map to semantic vars and auto-switch with dark mode.
         ink: {
-          1: '#4A1B3B',
-          2: '#6B4A5C',
-          3: '#9B8189'
+          1: 'var(--fg1)',
+          2: 'var(--fg2)',
+          3: 'var(--fg3)'
         },
         line: {
-          DEFAULT: '#E5DBDD',
-          strong: '#D2C2C5'
+          DEFAULT: 'var(--line)',
+          strong: 'var(--line-strong)'
+        },
+        accent: {
+          DEFAULT: 'var(--accent)',
+          hover: 'var(--accent-hover)'
+        },
+        action: {
+          DEFAULT: 'var(--action)',
+          fg: 'var(--action-fg)',
+          hover: 'var(--action-hover)',
+          press: 'var(--action-press)'
         }
       },
       borderRadius: {
@@ -53,11 +82,11 @@ module.exports = {
         '2xl': '32px'
       },
       boxShadow: {
-        xs: '0 1px 2px rgba(74, 27, 59, 0.06)',
-        sm: '0 2px 8px rgba(74, 27, 59, 0.06), 0 1px 2px rgba(74, 27, 59, 0.04)',
-        md: '0 8px 24px -8px rgba(74, 27, 59, 0.16), 0 2px 6px rgba(74, 27, 59, 0.05)',
-        lg: '0 24px 56px -20px rgba(74, 27, 59, 0.28), 0 6px 12px rgba(74, 27, 59, 0.06)',
-        focus: '0 0 0 4px rgba(248, 188, 159, 0.55)'
+        xs: 'var(--shadow-xs)',
+        sm: 'var(--shadow-sm)',
+        md: 'var(--shadow-md)',
+        lg: 'var(--shadow-lg)',
+        focus: 'var(--shadow-focus)'
       },
       backgroundImage: {
         'gradient-bloom':

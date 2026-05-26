@@ -44,8 +44,10 @@ body {
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  background: var(--cream-100);
+  background: var(--bg);
   color: var(--fg1);
+  transition: background-color var(--dur-3) var(--ease-soft),
+    color var(--dur-3) var(--ease-soft);
 }
 
 body {

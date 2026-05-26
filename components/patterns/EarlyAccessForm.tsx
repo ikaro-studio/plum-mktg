@@ -78,10 +78,10 @@ export default function EarlyAccessForm({
         role="status"
         aria-live="polite"
       >
-        <Heading level={4} className="text-plum-900">
+        <Heading level={4} className="text-fg-strong">
           {earlyAccess.success.title}
         </Heading>
-        <p className="text-ink-2 text-[15px] leading-relaxed">
+        <p className="text-fg-muted text-[15px] leading-relaxed">
           {earlyAccess.success.body}
         </p>
       </div>
@@ -131,7 +131,7 @@ export default function EarlyAccessForm({
       </div>
       {state.kind === 'error' && (
         <p
-          className="text-[13px] text-rose-500"
+          className="text-[13px] text-rose-500 dark:text-peach-300"
           role="alert"
           aria-live="assertive"
         >

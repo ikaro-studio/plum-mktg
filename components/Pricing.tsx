@@ -84,7 +84,7 @@ export default function Pricing({
             <p className="max-w-2xl m-auto mt-5 text-lg text-ink-2 sm:text-center">
               No subscription pricing plans yet. Create them in your{' '}
               <a
-                className="text-rose-500 hover:text-rose-400 underline underline-offset-4"
+                className="relative inline-flex items-baseline text-accent transition-colors duration-200 ease-soft hover:text-accent-hover after:content-[''] after:absolute after:left-0 after:bottom-[-2px] after:h-[1px] after:w-0 after:bg-current after:transition-[width] after:duration-300 after:ease-soft hover:after:w-full"
                 href="https://dashboard.stripe.com/products"
                 rel="noopener noreferrer"
                 target="_blank"
