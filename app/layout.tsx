@@ -69,7 +69,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <SupabaseProvider>
             <SkipToContent />
             <Navbar />
-            <main id="main">{children}</main>
+            <main id="main" className="pt-16 lg:pt-[72px]">{children}</main>
             <Footer />
           </SupabaseProvider>
         </ThemeProvider>

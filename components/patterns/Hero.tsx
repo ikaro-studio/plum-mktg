@@ -24,7 +24,7 @@ export default function Hero({
   secondaryCtaHref
 }: Props) {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden -mt-16 lg:-mt-[72px]">
       <AsciiHeroBackground />
 
       {/* Peach veil — fades top of hero zone */}
@@ -33,7 +33,7 @@ export default function Hero({
         className="absolute inset-x-0 top-0 h-[420px] bg-gradient-peach-veil opacity-80 pointer-events-none"
       />
 
-      <Container className="relative pt-16 md:pt-24 lg:pt-28 pb-16 md:pb-24">
+      <Container className="relative pt-32 md:pt-40 lg:pt-44 pb-16 md:pb-24">
         <div className="max-w-[920px]">
           <Eyebrow className="mb-6">{eyebrow}</Eyebrow>
           <Heading level={1} className="mb-8 md:mb-10">
