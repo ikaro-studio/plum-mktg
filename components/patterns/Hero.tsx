@@ -27,10 +27,10 @@ export default function Hero({
     <section className="relative overflow-hidden -mt-16 lg:-mt-[72px]">
       <AsciiHeroBackground />
 
-      {/* Peach veil — fades top of hero zone */}
+      {/* Peach veil — fades top of hero zone, softly blurs the ASCII underneath */}
       <div
         aria-hidden
-        className="absolute inset-x-0 top-0 h-[420px] bg-gradient-peach-veil opacity-80 pointer-events-none"
+        className="absolute inset-x-0 top-0 h-[560px] pointer-events-none bg-gradient-peach-veil backdrop-blur-[3px] [mask-image:linear-gradient(180deg,#000_0%,#000_70%,transparent_100%)] [-webkit-mask-image:linear-gradient(180deg,#000_0%,#000_70%,transparent_100%)]"
       />
 
       <Container className="relative pt-32 md:pt-40 lg:pt-44 pb-16 md:pb-24">
