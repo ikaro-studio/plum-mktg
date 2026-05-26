@@ -14,24 +14,7 @@ import { cn } from '@/lib/cn';
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    let frame = 0;
-    const onScroll = () => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        setScrolled(window.scrollY > 16);
-      });
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      cancelAnimationFrame(frame);
-    };
-  }, []);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -40,10 +23,8 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 transition-all duration-300 ease-soft',
-        scrolled
-          ? 'bg-surface/70 backdrop-blur-[18px] backdrop-saturate-150 border-b border-line'
-          : 'bg-transparent border-b border-transparent'
+        'sticky top-0 z-50',
+        'bg-surface/70 backdrop-blur-[18px] backdrop-saturate-150 border-b border-line'
       )}
     >
       <Container>
