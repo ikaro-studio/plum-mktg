@@ -1,0 +1,179 @@
+@font-face {
+  font-family: 'Avio Sans';
+  src: url('../fonts/AvioSans-Thin.woff2') format('woff2'),
+       url('../fonts/AvioSans-Thin.woff') format('woff'),
+       url('../fonts/AvioSans-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avio Sans';
+  src: url('../fonts/AvioSans-ExtraLight.woff2') format('woff2'),
+       url('../fonts/AvioSans-ExtraLight.woff') format('woff'),
+       url('../fonts/AvioSans-ExtraLight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avio Sans';
+  src: url('../fonts/AvioSans-Light.woff2') format('woff2'),
+       url('../fonts/AvioSans-Light.woff') format('woff'),
+       url('../fonts/AvioSans-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avio Sans';
+  src: url('../fonts/AvioSans-Regular.woff2') format('woff2'),
+       url('../fonts/AvioSans-Regular.woff') format('woff'),
+       url('../fonts/AvioSans-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avio Sans';
+  src: url('../fonts/AvioSans-Medium.woff2') format('woff2'),
+       url('../fonts/AvioSans-Medium.woff') format('woff'),
+       url('../fonts/AvioSans-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avio Sans';
+  src: url('../fonts/AvioSans-SemiBold.woff2') format('woff2'),
+       url('../fonts/AvioSans-SemiBold.woff') format('woff'),
+       url('../fonts/AvioSans-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avio Sans';
+  src: url('../fonts/AvioSans-Bold.woff2') format('woff2'),
+       url('../fonts/AvioSans-Bold.woff') format('woff'),
+       url('../fonts/AvioSans-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avio Sans';
+  src: url('../fonts/AvioSans-ExtraBold.woff2') format('woff2'),
+       url('../fonts/AvioSans-ExtraBold.woff') format('woff'),
+       url('../fonts/AvioSans-ExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avio Sans';
+  src: url('../fonts/AvioSans-Black.woff2') format('woff2'),
+       url('../fonts/AvioSans-Black.woff') format('woff'),
+       url('../fonts/AvioSans-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avio Sans';
+  src: url('../fonts/AvioSans-ThinItalic.woff2') format('woff2'),
+       url('../fonts/AvioSans-ThinItalic.woff') format('woff'),
+       url('../fonts/AvioSans-ThinItalic.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avio Sans';
+  src: url('../fonts/AvioSans-ExtraLightItalic.woff2') format('woff2'),
+       url('../fonts/AvioSans-ExtraLightItalic.woff') format('woff'),
+       url('../fonts/AvioSans-ExtraLightItalic.otf') format('opentype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avio Sans';
+  src: url('../fonts/AvioSans-LightItalic.woff2') format('woff2'),
+       url('../fonts/AvioSans-LightItalic.woff') format('woff'),
+       url('../fonts/AvioSans-LightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avio Sans';
+  src: url('../fonts/AvioSans-RegularItalic.woff2') format('woff2'),
+       url('../fonts/AvioSans-RegularItalic.woff') format('woff'),
+       url('../fonts/AvioSans-RegularItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avio Sans';
+  src: url('../fonts/AvioSans-MediumItalic.woff2') format('woff2'),
+       url('../fonts/AvioSans-MediumItalic.woff') format('woff'),
+       url('../fonts/AvioSans-MediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avio Sans';
+  src: url('../fonts/AvioSans-SemiBoldItalic.woff2') format('woff2'),
+       url('../fonts/AvioSans-SemiBoldItalic.woff') format('woff'),
+       url('../fonts/AvioSans-SemiBoldItalic.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avio Sans';
+  src: url('../fonts/AvioSans-BoldItalic.woff2') format('woff2'),
+       url('../fonts/AvioSans-BoldItalic.woff') format('woff'),
+       url('../fonts/AvioSans-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avio Sans';
+  src: url('../fonts/AvioSans-ExtraBoldItalic.woff2') format('woff2'),
+       url('../fonts/AvioSans-ExtraBoldItalic.woff') format('woff'),
+       url('../fonts/AvioSans-ExtraBoldItalic.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avio Sans';
+  src: url('../fonts/AvioSans-BlackItalic.woff2') format('woff2'),
+       url('../fonts/AvioSans-BlackItalic.woff') format('woff'),
+       url('../fonts/AvioSans-BlackItalic.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}

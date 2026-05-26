@@ -11,8 +11,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-sans)', 'Sora', ...fontFamily.sans],
-        soft: ['var(--font-soft)', 'Quicksand', ...fontFamily.sans]
+        sans: ['var(--font-sans)', ...fontFamily.sans],
+        soft: ['var(--font-soft)', ...fontFamily.sans],
+        avio: ['var(--font-avio)', ...fontFamily.sans]
       },
       colors: {
         // ---- Brand colors — constant across modes ----

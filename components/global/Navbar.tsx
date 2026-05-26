@@ -8,6 +8,7 @@ import { Fragment, useEffect, useState } from 'react';
 import Container from '@/components/layout/Container';
 import RequestAccessButton from '@/components/patterns/RequestAccessButton';
 import ThemeToggle from '@/components/global/ThemeToggle';
+import PlumLogo from '@/components/global/PlumLogo';
 import { navItems } from '@/content/nav';
 import { cn } from '@/lib/cn';
 
@@ -163,22 +164,7 @@ function Logo() {
       aria-label="Plum, home"
       className="inline-flex items-center focus-visible:outline-none focus-visible:shadow-focus rounded-sm"
     >
-      {/* Two lockups stacked; dark:hidden / hidden dark:block flips with theme.
-          Both load once on the home page but only one renders, no JS flash. */}
-      <img
-        src="/brand/plum-lockup.svg"
-        alt="Plum"
-        width={96}
-        height={30}
-        className="h-7 w-auto block dark:hidden"
-      />
-      <img
-        src="/brand/plum-lockup-white.svg"
-        alt="Plum"
-        width={96}
-        height={23}
-        className="h-7 w-auto hidden dark:block"
-      />
+      <PlumLogo width={89} height={25} />
     </NextLink>
   );
 }

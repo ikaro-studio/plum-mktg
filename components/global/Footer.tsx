@@ -6,6 +6,7 @@ import Phrase from '@/components/ui/Phrase';
 import Caption from '@/components/ui/Caption';
 import { footerColumns, legalLinks, socialLinks } from '@/content/footer';
 import { cn } from '@/lib/cn';
+import PlumLogo from '@/components/global/PlumLogo';
 
 export default function Footer() {
   return (
@@ -85,20 +86,7 @@ function FooterLogo() {
       aria-label="Plum, home"
       className="inline-flex items-center focus-visible:outline-none focus-visible:shadow-focus rounded-sm"
     >
-      <img
-        src="/brand/plum-lockup.svg"
-        alt="Plum"
-        width={130}
-        height={41}
-        className="h-9 w-auto block dark:hidden"
-      />
-      <img
-        src="/brand/plum-lockup-white.svg"
-        alt="Plum"
-        width={130}
-        height={31}
-        className="h-9 w-auto hidden dark:block"
-      />
+      <PlumLogo width={114} height={36} />
     </NextLink>
   );
 }
