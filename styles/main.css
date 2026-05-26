@@ -1,9 +1,18 @@
 /* Plum design tokens — colors, type, spacing, radii, shadows, motion */
-@import url('../design-system/colors_and_type.css');
+@import '../styles/tokens.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* next/font (see app/layout.tsx) exposes --font-sora and --font-quicksand
+   on <html>. Wire the brand-named font vars to those subsetted faces so
+   no third-party network request is needed at runtime. */
+:root {
+  --font-sans: var(--font-sora), -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    system-ui, sans-serif;
+  --font-soft: var(--font-quicksand), var(--font-sora), system-ui, sans-serif;
+}
 
 *,
 *:before,
@@ -26,6 +35,7 @@ html {
   box-sizing: border-box;
   touch-action: manipulation;
   font-feature-settings: 'case' 1, 'rlig' 1, 'calt' 0;
+  scroll-behavior: smooth;
 }
 
 html,

@@ -1,0 +1,268 @@
+/* ============================================================
+   Plum Design System — Core tokens
+   Colors, type, spacing, radii, shadows, motion.
+   Drop this on any page: <link rel="stylesheet" href="colors_and_type.css">
+   ============================================================ */
+
+/* -- Fonts --------------------------------------------------- */
+/* Avio Sans → substituted with Sora (geometric humanist sans, closest match on Google Fonts).
+   Isidora → substituted with Quicksand (soft warm humanist sans, used at Light for accent phrases).
+   See fonts/README.md to swap in real Avio Sans / Isidora when font files arrive. */
+
+:root {
+  /* ----- Color: brand core (Feng Shui palette from brief) ----- */
+  --plum-900: #351B30;   /* deepest plum — heaviest text, dark surfaces           */
+  --plum-800: #4A1B3B;   /* primary brand ink — body text on light, primary fill  */
+  --plum-700: #5B235A;   /* royal plum — used sparingly for headings              */
+  --rose-500: #AA5476;   /* mauve / raspberry — primary accent, links, focus      */
+  --rose-300: #C8A9AF;   /* dusty rose — secondary surface, chips, hover tint     */
+  --rose-200: #C6A5AC;   /* rose tone-on-tone (rare variant)                      */
+  --peach-400: #F8BC9F;  /* warm peach — joyful accent, callouts, highlight       */
+  --peach-300: #F7BB9E;  /* peach variant                                         */
+  --sage-300: #C7D4BB;   /* feng-shui earth — partnerships, balance, success tint */
+  --sage-400: #C8D5BB;   /* sage variant                                          */
+  --cream-100: #F1EDEE;  /* cream blush — primary app background                  */
+  --white: #FFFFFF;
+
+  /* ----- Color: extended (used sparingly in the brief) ----- */
+  --iris-500: #8EA1FF;   /* periwinkle — rare highlight on dark plum               */
+  --iris-200: #CCDEF6;   /* pale ice blue                                          */
+  --teal-700: #2B4D59;   /* dark seaweed — alt dark surface, never primary         */
+  --slate-500: #49637A;  /* slate text (long-form body alt)                        */
+  --slate-400: #47575C;  /* graphite gray for muted captions                       */
+
+  /* ----- Semantic surfaces ----- */
+  --bg: var(--cream-100);
+  --bg-elevated: var(--white);
+  --bg-sunken: #EAE3E4;          /* derived: cream-100 stepped 1 down              */
+  --bg-inverse: var(--plum-900);
+
+  /* ----- Semantic text ----- */
+  --fg1: var(--plum-800);         /* primary body                                  */
+  --fg2: #6B4A5C;                 /* secondary text — derived plum-mid             */
+  --fg3: #9B8189;                 /* tertiary / metadata                           */
+  --fg-inverse: var(--cream-100);
+  --fg-accent: var(--rose-500);
+  --fg-on-peach: var(--plum-800);
+  --fg-on-plum: var(--cream-100);
+
+  /* ----- Semantic edge / line ----- */
+  --line: #E5DBDD;                /* default hairline                              */
+  --line-strong: #D2C2C5;         /* divider                                       */
+  --line-dark: rgba(74, 27, 59, 0.18);
+
+  /* ----- Semantic action ----- */
+  --action: var(--plum-800);
+  --action-fg: var(--cream-100);
+  --action-hover: var(--plum-700);
+  --action-press: var(--plum-900);
+  --accent: var(--rose-500);
+  --accent-hover: #95416A;        /* derived darker rose                           */
+  --focus-ring: var(--peach-400);
+
+  /* ----- Semantic state ----- */
+  --success: #6B8A5A;             /* sage at full opacity                          */
+  --success-bg: var(--sage-300);
+  --warning: #C7833B;             /* warm amber, tonal cousin of peach             */
+  --warning-bg: #F6DDC4;
+  --danger: #B14545;              /* warm desaturated red, never a fire-engine red */
+  --danger-bg: #F2D4D4;
+  --info: var(--slate-500);
+  --info-bg: var(--iris-200);
+
+  /* ----- Signature gradients (used like brand 'wallpaper') ----- */
+  --gradient-bloom: linear-gradient(180deg, #F1EDEE 7%, #F8BC9F 28%, #AA5476 61%, #4A1B3B 100%); /* logo radial */
+  --gradient-feng: linear-gradient(135deg, #C7D4BB 0%, #F8BC9F 100%);                           /* sage→peach */
+  --gradient-peach-veil: linear-gradient(180deg, #F7BB9E 0%, rgba(255,255,255,0) 100%);          /* hero veil */
+  --gradient-rose-veil: linear-gradient(180deg, #F1EDEE 0%, #C8A9AF 100%);                       /* cool descent */
+
+  /* ----- Type families ----- */
+  --font-sans: "Sora", "Avio Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-soft: "Quicksand", "Isidora", "Sora", system-ui, sans-serif; /* warm phrase / quote face */
+  --font-mono: "JetBrains Mono", "SF Mono", ui-monospace, Menlo, monospace;
+
+  /* ----- Type scale (clamp-driven, anchored on 16px body) ----- */
+  --fs-12: 0.75rem;
+  --fs-13: 0.8125rem;
+  --fs-14: 0.875rem;
+  --fs-15: 0.9375rem;
+  --fs-16: 1rem;
+  --fs-18: 1.125rem;
+  --fs-20: 1.25rem;
+  --fs-24: 1.5rem;
+  --fs-32: 2rem;
+  --fs-40: 2.5rem;
+  --fs-56: 3.5rem;
+  --fs-80: 5rem;
+  --fs-128: 8rem;
+
+  /* tracking — Avio Sans was set at -0.04em for display */
+  --tracking-display: -0.04em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-loose: 0.04em;
+  --tracking-eyebrow: 0.12em;  /* uppercase eyebrows */
+
+  --leading-tight: 1.0;
+  --leading-snug: 1.15;
+  --leading-normal: 1.4;
+  --leading-relaxed: 1.55;
+
+  /* ----- Spacing scale (4-based) ----- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ----- Radii ----- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 999px;
+
+  /* ----- Shadow / elevation — warm-tinted, never neutral gray ----- */
+  --shadow-xs: 0 1px 2px rgba(74, 27, 59, 0.06);
+  --shadow-sm: 0 2px 8px rgba(74, 27, 59, 0.06), 0 1px 2px rgba(74, 27, 59, 0.04);
+  --shadow-md: 0 8px 24px -8px rgba(74, 27, 59, 0.16), 0 2px 6px rgba(74, 27, 59, 0.05);
+  --shadow-lg: 0 24px 56px -20px rgba(74, 27, 59, 0.28), 0 6px 12px rgba(74, 27, 59, 0.06);
+  --shadow-inner: inset 0 0 0 1px rgba(74, 27, 59, 0.08);
+  --shadow-focus: 0 0 0 4px rgba(248, 188, 159, 0.55);
+
+  /* ----- Motion ----- */
+  --ease-soft: cubic-bezier(0.32, 0.72, 0.24, 1.0);   /* default, gentle settle */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --dur-1: 120ms;
+  --dur-2: 200ms;
+  --dur-3: 320ms;
+  --dur-4: 560ms;
+}
+
+/* ============================================================
+   Base type — semantic mappings
+   ============================================================ */
+html, body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-16);
+  line-height: var(--leading-normal);
+  color: var(--fg1);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, .h1, .display {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(48px, 7vw, 128px);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
+  color: var(--plum-800);
+}
+
+h2, .h2 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-56);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-display);
+  color: var(--plum-800);
+}
+
+h3, .h3 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-32);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--plum-800);
+}
+
+h4, .h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-24);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--plum-800);
+}
+
+h5, .h5 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-18);
+  line-height: var(--leading-snug);
+  color: var(--plum-800);
+}
+
+p, .body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-16);
+  line-height: var(--leading-relaxed);
+  color: var(--fg1);
+  text-wrap: pretty;
+}
+
+.body-lg { font-size: var(--fs-18); line-height: var(--leading-relaxed); }
+.body-sm { font-size: var(--fs-14); line-height: var(--leading-normal); }
+.caption { font-size: var(--fs-13); color: var(--fg3); letter-spacing: 0; }
+
+/* Eyebrow / overline — used everywhere in the brief (SPIRIT, SPECIALTY, HOW WE STAND OUT) */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-13);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg2);
+}
+
+/* Soft phrase — Isidora-style. Used for warm, single-word vibes:
+   "helpful"  "balance"  "inviting"  "wealth"  "intuitive" */
+.phrase {
+  font-family: var(--font-soft);
+  font-weight: 300;
+  font-size: var(--fs-32);
+  line-height: var(--leading-snug);
+  letter-spacing: 0;
+  color: var(--plum-800);
+}
+
+code, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  color: var(--rose-500);
+  background: rgba(170, 84, 118, 0.08);
+  padding: 1px 6px;
+  border-radius: var(--radius-xs);
+}
+
+a {
+  color: var(--rose-500);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  transition: color var(--dur-2) var(--ease-soft);
+}
+a:hover { color: var(--accent-hover); }
+
+/* Selection in plum, never default blue */
+::selection { background: var(--peach-400); color: var(--plum-800); }
+
+/* Focus — peach ring, never blue */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+  border-radius: var(--radius-sm);
+}
