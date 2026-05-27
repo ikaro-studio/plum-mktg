@@ -94,7 +94,7 @@ module.exports = {
           'linear-gradient(180deg, #F1EDEE 7%, #F8BC9F 28%, #AA5476 61%, #4A1B3B 100%)',
         'gradient-feng': 'linear-gradient(135deg, #C7D4BB 0%, #F8BC9F 100%)',
         'gradient-peach-veil':
-          'linear-gradient(180deg, #F7BB9E 0%, rgba(247,187,158,0.85) 40%, rgba(247,187,158,0) 100%)'
+          'linear-gradient(180deg, #F7BB9E 0%, rgba(255,255,255,0) 100%)'
       },
       transitionTimingFunction: {
         soft: 'cubic-bezier(0.32, 0.72, 0.24, 1.0)'

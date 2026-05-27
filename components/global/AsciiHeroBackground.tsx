@@ -31,7 +31,7 @@ function readPalette(): Palette {
     c2: cssColor(cs, '--rose-500', '#AA5476'),
     c3: cssColor(cs, isDark ? '--peach-400' : '--plum-800', '#4A1B3B'),
     bg: cssColor(cs, '--bg', '#F1EDEE'),
-    glyphAlpha: isDark ? 0.92 : 0.82
+    glyphAlpha: isDark ? 0.46 : 0.41
   };
 }
 
